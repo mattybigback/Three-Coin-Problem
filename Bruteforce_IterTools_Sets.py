@@ -7,6 +7,7 @@ import itertools
 coins = (1,2,5,10,20,50,100,200)
 
 def main():
+    max_value = max(coins)*3
     can_make = set()
     cannot_make = set()
     for coin1, coin2, coin3 in itertools.product(coins, coins, coins):
@@ -14,7 +15,7 @@ def main():
         if total not in can_make:
             can_make.add(total)
 
-    for result in range(600):
+    for result in range(max_value):
         if result not in can_make:
             cannot_make.add(result)
     print("Possible")
