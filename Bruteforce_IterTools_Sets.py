@@ -19,9 +19,8 @@ def main():
         if result not in can_make:
             cannot_make.add(result)
     print("Possible")
-    can_make=list(can_make)
+    can_make = sorted(can_make)
     cannot_make=list(cannot_make)
-    can_make.sort()
     print(f"{can_make}\n")
     print("Impossible")
     print(cannot_make)
