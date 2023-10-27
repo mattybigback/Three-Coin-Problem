@@ -1,29 +1,24 @@
 """
-Refactored to use sets.
-This should make the result not in comparisons faster
+Refactored to use sets to allow for quicker derivation of the cannot_make list
 """
 
-import itertools
+from itertools import product
 coins = (1,2,5,10,20,50,100,200)
 
 def main():
     max_value = max(coins)*3
     can_make = set()
     cannot_make = set()
-    for coin1, coin2, coin3 in itertools.product(coins, coins, coins):
-        total=coin1+coin2+coin3
-        if total not in can_make:
-            can_make.add(total)
+    for coin_tuple in product(coins, repeat=3):
+        can_make.add(sum(coin_tuple))
 
-    for result in range(max_value):
-        if result not in can_make:
-            cannot_make.add(result)
+    cannot_make = set(range(max_value))
+    cannot_make = cannot_make-can_make
+
     print("Possible")
-    can_make = sorted(can_make)
-    cannot_make=list(cannot_make)
-    print(f"{can_make}\n")
+    print(f"{sorted(can_make)}\n")
     print("Impossible")
-    print(cannot_make)
+    print(list(cannot_make))
 
 if __name__ == "__main__":
     main()
