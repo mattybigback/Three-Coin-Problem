@@ -16,7 +16,7 @@ The first three solutions are based around a naive bruteforce of the list of coi
 
 ## Benchmark
 
-I have included a small bash script that benchmarks each solution using python's timeit module. The results below were run on a laptop with an i7 7500U running at 3.5 GHz. Note that outputing the scripts to the standard console will slow them down considerably as console outputs are much slower than writing to a file.
+I have included a couple of benchmarking scripts (Bash and PowerShell) that run each solution using python's timeit module. The results below were run on a laptop with an i7 7500U running at 3.5 GHz. Note that outputing the scripts to the standard console will slow them down considerably as console outputs are much slower than writing to a file.
 
 #### Bruteforce_NestedFor.py
 100 loops, best of 5: 34 msec per loop
